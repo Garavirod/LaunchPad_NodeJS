@@ -29,7 +29,11 @@ parser.on('open', function() {
 
 parser.on('data', function(data) {
     console.log(data);
-    io.emit('temp', data);
+    //io.emit('temp', data);
+    io.emit('temp:data', {
+        value: data.toString()
+    });
+
 
 });
 
