@@ -16,11 +16,12 @@ socket.on('temp:data', function(ds) {
     });
     counter++;
     myChart.update();
-    // let t = document.getElementById('temperature');
-    // t.innerHTML = (data * 100) + "°c";
+    let t = document.getElementById('temperatura');
+    let r = (parseFloat(ds.value) * 100);
+    t.innerHTML = r + "°C";
 });
 
-var ctx = document.getElementById('mycanvas').getContext('2d');
+var ctx = document.getElementById('graphics').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
