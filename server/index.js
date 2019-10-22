@@ -7,7 +7,7 @@ const socketIO = require('socket.io');
 const app = express();
 const server = http.createServer(app); //Le damos la configuracion que le deamos a express
 const io = socketIO.listen(server);
-
+let df = [];
 app.use(express.static(__dirname + '/public'));
 
 server.listen(3000, function() {
@@ -30,9 +30,14 @@ parser.on('open', function() {
 parser.on('data', function(data) {
     console.log(data);
     //io.emit('temp', data);
-    io.emit('temp:data', {
-        value: data.toString()
-    });
+    df.push(data);
+    if (df.length == 3) {
+        io.emit('temp:data', {
+            value: df //data.toString()
+        });
+        df = [];
+    }
+
 
 
 });

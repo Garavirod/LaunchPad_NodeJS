@@ -4,8 +4,12 @@ void setup() {
 }
 
 void loop() {
-  int sensorValue = analogRead (A3);
-  float voltaje = sensorValue * (3.0 / 1023.0);
+  float sensorValue = analogRead (A0);
+
+  float voltaje = sensorValue * (3.3 / 1024.0);
+
   Serial.println(voltaje);
+  Serial.println("1");  
+  Serial.println("2");
   delay(1000);
 }
