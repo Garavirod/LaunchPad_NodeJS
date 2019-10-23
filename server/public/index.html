@@ -7,17 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>.:Proyecto Insrumentacion:.</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container-fluid navbar-dark bg-danger fixed-top">
         <nav class="navbar navbar-expand-lg container-fluid">
-            <a class="navbar-brand" href="#">Proyecto-Instrumentación</a>
+            <img src="png/001-technological.png" class="img-fluid" alt="">
+            <a class="navbar-brand fuente" href="#">Proyecto-Instrumentación</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
-
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Cambiar la l por r para ca,biar el centrado desde la seccionn de inicio-->
                 <ul class="navbar-nav ml-auto">
@@ -35,114 +37,83 @@
         </nav>
     </div>
     <!-- SLIDER -->
-    <div class="container-fluid fondo">
-        <!-- Los elemtnos hjos serán flexibles con d.felx, estran centrados con justify-center y ocuparan el ancho del 100con h-100 -->
-        <!-- para cantrar los textos ocupamos los align-items-center -->
-        <div class="container d-flex flex-column justify-content-center h-100 text-white align-items-center">
-            <h1>EVENT PLANNER "Deja que alguien más lo haga por ti"</h1>
-            <p>Event Planner es una aplicacion que se encarga de planificar y desarrollar un evento social por tí <br> Ya no te preocupes más si no sabes por donde empezar, Déjanolo a nosotros. <br> ¡Crea un fiesta, una boda, una simple reunión o cualquier
-                evento que desees con tan sólo unos clicks!
-            </p>
+    <section class="bg-white mt-5">
+        <!-- SECCION1 -->
+        <!-- Agregamos un padding al contenedor con py-5 arriba y abajo-->
+        <div class="container py-5">
+            <!-- Aliniamos el contenidos de los row o items con el alingn-items-center-->
+            <div class="row aling-items-center text-right">
+                <div class="col-md-6">
+                    <h2>Instrumentación</h2>
+                    <p>
+                        <b>3CM4</b>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, harum sapiente. Aspernatur autem porro nam blanditiis rem quae ad praesentium.</p>
+                </div>
+                <div class="col-md-6 text-center p-3">
+                    <!-- Pra que la image sea responsiva piner el img.fluid -->
+                    <img src="png/bio-sensor_.png" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
 
-        </div>
-    </div>
-    <!-- SECCION1 -->
-    <!-- Agregamos un padding al contenedor con py-5 arriba y abajo-->
-    <div class="container py-5">
-        <!-- Aliniamos el contenidos de los row o items con el alingn-items-center-->
-        <div class="row aling-items-center text-right">
-            <div class="col-md-6">
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>
-                    <b>Lorem, ipsum.</b>
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, harum sapiente. Aspernatur autem porro nam blanditiis rem quae ad praesentium.</p>
-            </div>
-            <div class="col-md-6">
-                <!-- Pra que la image sea responsiva piner el img.fluid -->
-                <img src="imgs/2.png" class="img-fluid" alt="" width="500">
-            </div>
-        </div>
-    </div>
+    </section>
     <!-- BANNER -->
-    <div class="container-fluid py-5 bg-danger text-center text-white">
+    <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
-            <h2>Sensor de tempereatura</h2>
+            <h2 class="fuente">Sensor de tempereatura</h2>
             <!-- los hijos estran en diplay con tamaño de 4 -->
             <div class="display-4">
-                <!-- Les agreagsmo los iconos un padding de 5 px con pr-5 -->
-                <i class="pr-5 fas fa-cloud-download-alt"></i>
-                <i class="pr-5 far fa-money-bill-alt"></i>
-                <i class="pr-5 fab fa-slack"></i>
-                <i class="pr-5 fab fa-linux"></i>
-                <i class="pr-5 fab fa-apple"></i>
+                <img src="png/002-hot.png" class="img-fluid" alt="">
+
             </div>
         </div>
     </div>
 
     <!-- PRECIOS -->
-    <div class="container-fluid">
+    <div class="container-fluid bg-white">
         <div class="container py-5">
 
-            <div class="row">
+            <div class="row fuente">
                 <div class="col-md-6 p-3">
                     <div class="row">
                         <!-- DATOS -->
                         <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Tc (°C)
-                                </div>
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
                                 <div class="card-body">
-                                    <div class="py-3">
-                                        <p id="temperatura"></p>
-                                    </div>
+                                    <h5 class="card-title" id="temperatura"></h5>
                                 </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">Sensor</a>
+                            </div>
+                        </div>
+                        <!-- FIN DATOS -->
+                        <!-- DATOS -->
+                        <div class="col-md-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
+                                <div class="card-body">
+                                    <h5 class="card-title" id="temperatura">30</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN DATOS -->
+                        <!-- DATOS -->
+                        <div class="col-md-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
+                                <div class="card-body">
+                                    <h5 class="card-title" id="temperatura">30</h5>
+                                </div>
                             </div>
                         </div>
                         <!-- FIN DATOS -->
 
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Vt (Vol)
-                                </div>
-                                <div class="card-body">
-                                    <div class="py-3">
-                                        <p>50 °C</p>
-                                    </div>
-                                </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">Sensor</a>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    V0 (Vol)
-                                </div>
-                                <div class="card-body">
-                                    <div class="py-3">
-                                        <p>50 °C</p>
-                                    </div>
-                                </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">CAS</a>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
 
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="row p-2 bg-success">
-                        <div class="col-md-12 bg-dark">
+                    <div class="row p-2 bg_black">
+                        <div class="col-md-12 border  p-2">
                             <canvas id="graphic_temp"></canvas>
                         </div>
                     </div>
@@ -152,83 +123,59 @@
     </div>
     <!-- FIN PRECIOS -->
 
-    <div class="container-fluid py-5 bg-danger text-center text-white">
+    <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
-            <h2>Sensor de Luz</h2>
+            <h2 class="fuente">Sensor de Luz</h2>
             <!-- los hijos estran en diplay con tamaño de 4 -->
             <div class="display-4">
                 <!-- Les agreagsmo los iconos un padding de 5 px con pr-5 -->
-                <i class="pr-5 fas fa-cloud-download-alt"></i>
-                <i class="pr-5 far fa-money-bill-alt"></i>
-                <i class="pr-5 fab fa-slack"></i>
-                <i class="pr-5 fab fa-linux"></i>
-                <i class="pr-5 fab fa-apple"></i>
+                <img src="png/003-light-bulb.png" class="img-fluid" alt="">
             </div>
         </div>
     </div>
-        <!-- PRECIOS -->
-    <div class="container-fluid">
+    <!-- PRECIOS -->
+    <div class="container-fluid bg-white">
         <div class="container py-5">
-
-            <div class="row">
+            <div class="row fuente">
                 <div class="col-md-6 p-3">
                     <div class="row">
                         <!-- DATOS -->
                         <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Tc (°C)
-                                </div>
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
                                 <div class="card-body">
-                                    <div class="py-3">
-                                        <p id="hzt"></p>
-                                    </div>
+                                    <h5 class="card-title" id="hzt">30</h5>
                                 </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">Sensor</a>
+                            </div>
+                        </div>
+                        <!-- FIN DATOS -->
+                        <!-- DATOS -->
+                        <div class="col-md-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
+                                <div class="card-body">
+                                    <h5 class="card-title" id="temperatura">30</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN DATOS -->
+                        <!-- DATOS -->
+                        <div class="col-md-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
+                                <div class="card-body">
+                                    <h5 class="card-title" id="temperatura">30</h5>
+                                </div>
                             </div>
                         </div>
                         <!-- FIN DATOS -->
 
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Vt (Vol)
-                                </div>
-                                <div class="card-body">
-                                    <div class="py-3">
-                                        <p>50 °C</p>
-                                    </div>
-                                </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">Sensor</a>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    V0 (Vol)
-                                </div>
-                                <div class="card-body">
-                                    <div class="py-3">
-                                        <p>50 °C</p>
-                                    </div>
-                                </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">CAS</a>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
 
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="row p-2 bg-success">
-                        <div class="col-md-12 bg-dark">
+                    <div class="row p-2 bg_black">
+                        <div class="col-md-12 border  p-2">
                             <canvas id="graphic_luz"></canvas>
                         </div>
                     </div>
@@ -238,9 +185,9 @@
     </div>
     <!-- FIN PRECIOS -->
 
-    <div class="container-fluid py-5 bg-danger text-center text-white">
+    <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
-            <h2>Sensor de Humedad</h2>
+            <h2 class="fuente">Sensor de Humedad</h2>
             <!-- los hijos estran en diplay con tamaño de 4 -->
             <div class="display-4">
                 <!-- Les agreagsmo los iconos un padding de 5 px con pr-5 -->
@@ -252,69 +199,50 @@
             </div>
         </div>
     </div>
-            <!-- PRECIOS -->
-    <div class="container-fluid">
+    <!-- PRECIOS -->
+    <div class="container-fluid bg-white">
         <div class="container py-5">
 
-            <div class="row">
+            <div class="row fuente">
                 <div class="col-md-6 p-3">
                     <div class="row">
                         <!-- DATOS -->
                         <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Tc (°C)
-                                </div>
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
                                 <div class="card-body">
-                                    <div class="py-3">
-                                        <p id="humedad"></p>
-                                    </div>
+                                    <h5 class="card-title" id="humedad">30</h5>
                                 </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">Sensor</a>
+                            </div>
+                        </div>
+                        <!-- FIN DATOS -->
+                        <!-- DATOS -->
+                        <div class="col-md-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
+                                <div class="card-body">
+                                    <h5 class="card-title" id="temperatura">30</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN DATOS -->
+                        <!-- DATOS -->
+                        <div class="col-md-4">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header">Tc(°c)</div>
+                                <div class="card-body">
+                                    <h5 class="card-title" id="temperatura">30</h5>
+                                </div>
                             </div>
                         </div>
                         <!-- FIN DATOS -->
 
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Vt (Vol)
-                                </div>
-                                <div class="card-body">
-                                    <div class="py-3">
-                                        <p>50 °C</p>
-                                    </div>
-                                </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">Sensor</a>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    V0 (Vol)
-                                </div>
-                                <div class="card-body">
-                                    <div class="py-3">
-                                        <p>50 °C</p>
-                                    </div>
-                                </div>
-                                <!-- quitar el estilo enlace con btn y agregar coor con bg-primary -->
-                                <a href="#" class="card-footer btn bg-primary text-white">CAS</a>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
 
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="row p-2 bg-success">
-                        <div class="col-md-12 bg-dark">
+                    <div class="row p-2 bg_black">
+                        <div class="col-md-12 border  p-2">
                             <canvas id="graphic_hume"></canvas>
                         </div>
                     </div>
@@ -324,7 +252,7 @@
     </div>
     <!-- FIN PRECIOS -->
     <!-- FOOTER -->
-    <footer class="container-fluid bg-dark text-center text-white py-5">
+    <footer class="container-fluid bg_black text-center text-white py-5">
         <p>Sitio web desarrolado por Rodrgio García Ávila</p>
     </footer>
 
@@ -334,4 +262,5 @@
     <script src="socket.io/socket.io.js" charset="utf-8"></script>
     <script src="main.js" charset="utf-8"></script>
 </body>
+
 </html>

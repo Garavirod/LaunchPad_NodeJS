@@ -10,8 +10,8 @@ const io = socketIO.listen(server);
 let df = [];
 app.use(express.static(__dirname + '/public'));
 
-server.listen(3000, function() {
-    console.log('server listenig on port ' + 3000);
+server.listen(2000, function() {
+    console.log('server listenig on port ' + 2000);
 });
 
 // SERIAL

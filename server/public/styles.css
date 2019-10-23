@@ -1,0 +1,17 @@
+.fuente {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background: url('png/circuito.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.bg_red {
+    background-color: rgba(238, 34, 74, 0.8);
+}
+
+.bg_black {
+    background-color: rgba(17, 14, 14, 0.8);
+}

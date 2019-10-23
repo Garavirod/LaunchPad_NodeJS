@@ -10,13 +10,13 @@ socket.on('temp:data', function(ds) {
 
 // Grafica de temperaturua
 var objTemp = document.getElementById('graphic_temp').getContext('2d');
-var charTemp = graphicSettings(objTemp, 'rgb(203, 238, 30)', 'Temperatura');
+var charTemp = graphicSettings(objTemp, 'rgb(21, 212, 47)', 'Temperatura');
 // Grafica de tluz
 var objLuz = document.getElementById('graphic_luz').getContext('2d');
-var charLuz = graphicSettings(objLuz, 'rgb(49, 236, 231)', 'Lumens');
+var charLuz = graphicSettings(objLuz, 'rgb(239, 243, 11)', 'Lumens');
 // Grafica de 3 sensor
 var objhumedad = document.getElementById('graphic_hume').getContext('2d');
-var charhumedad = graphicSettings(objhumedad, 'rgb(236, 49, 233)', 'humedad');
+var charhumedad = graphicSettings(objhumedad, 'rgb(11, 243, 215)', 'humedad');
 
 // DEFINICION DE FUNCIONES 
 
@@ -70,7 +70,7 @@ function graphicSettings(ctx, color, etq) {
             legend: {
                 labels: {
                     // This more specific font property overrides the global property
-                    fontColor: 'white'
+                    fontColor: '#fff'
                 }
             }
         }
