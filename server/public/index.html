@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>.:Proyecto Insrumentacion:.</title>
+    <link rel="stylesheet" href="css/thermo.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/light.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
@@ -52,13 +54,14 @@
                 </div>
                 <div class="col-md-6 text-center p-3">
                     <!-- Pra que la image sea responsiva piner el img.fluid -->
-                    <img src="png/bio-sensor_.png" class="img-fluid" alt="">
+                    <img src="png/circuit.png" class="img-fluid" alt="">
+
                 </div>
             </div>
         </div>
 
     </section>
-    <!-- BANNER -->
+    <!-- BANNER TERMO-->
     <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
             <h2 class="fuente">Sensor de tempereatura</h2>
@@ -69,60 +72,72 @@
             </div>
         </div>
     </div>
+    <!-- FIN BANNER TERMO -->
 
-    <!-- PRECIOS -->
+    <!-- TERMO SECTION -->
     <div class="container-fluid bg-white">
         <div class="container py-5">
-
             <div class="row fuente">
-                <div class="col-md-6 p-3">
+                <div class="col-md-4">
                     <div class="row">
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura"></h5>
-                                </div>
-                            </div>
+                        <div class="col-md-12">
+                            <!-- DATOS -->
+                            <ul class="list-group card border-danger">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Tc(°C)
+                                    <span class="badge badge-danger badge-pill">14.34</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    V0(V)
+                                    <span class="badge badge-danger badge-pill">2.5</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Vt(V)
+                                    <span class="badge badge-danger badge-pill">1.23</span>
+                                </li>
+                            </ul>
+                            <!-- FIN DATOS -->
                         </div>
-                        <!-- FIN DATOS -->
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura">30</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-4">
+                            <!-- ANIMACION -->
+                            <!-- TERMOMETRO -->
+                            <div id="wrapper">
+                                <div id="termometer">
+                                    <div id="temperature" style="height:0" data-value="0°C"></div>
+                                    <div id="graduations"></div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura">30</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
 
-
+                                <div id="playground">
+                                    <div id="range">
+                                        <input id="minTemp" type="text" value="-20">
+                                        <input type="range" min="-20" max="50" value="42">
+                                        <input id="maxTemp" type="text" value="50">
+                                    </div>
+                                    <p id="unit">Celcius C°</p>
+                                </div>
+                            </div>
+                            <!-- FIN TERMOMETRO -->
+                        </div>
+                        <!-- FIN ANIMACION -->
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- GRAFICA -->
+                <div class="col-md-8">
                     <div class="row p-2 bg_black">
                         <div class="col-md-12 border  p-2">
                             <canvas id="graphic_temp"></canvas>
                         </div>
                     </div>
                 </div>
+                <!-- FIN GRAFICA -->
             </div>
         </div>
     </div>
-    <!-- FIN PRECIOS -->
+    <!-- FIN TERMO SECCION -->
 
+    <!-- BANNER LUZ -->
     <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
             <h2 class="fuente">Sensor de Luz</h2>
@@ -133,57 +148,60 @@
             </div>
         </div>
     </div>
-    <!-- PRECIOS -->
+    <!-- FIN BANNER LUZ -->
+
+    <!-- LUZ SECTION -->
     <div class="container-fluid bg-white">
         <div class="container py-5">
             <div class="row fuente">
-                <div class="col-md-6 p-3">
+                <div class="col-md-4">
                     <div class="row">
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="hzt">30</h5>
+                        <div class="col-md-12">
+                            <!-- DATOS -->
+                            <ul class="list-group card border-danger">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Tc(°C)
+                                    <span class="badge badge-danger badge-pill">14.34</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    V0(V)
+                                    <span class="badge badge-danger badge-pill">2.5</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Vt(V)
+                                    <span class="badge badge-danger badge-pill">1.23</span>
+                                </li>
+                            </ul>
+                            <!-- FIN DATOS -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-4">
+                            <!-- ANIMACION -->
+                            <!-- LIGHT-BULB -->
+                            <div class="frame">
+                                <div class="lamp">
+                                    <svg class="lamp__icon" viewBox="0 0 277 408"><path d="M191.32,378 L84.153,378 C79.097,378 75,382.121 75,387.169 C75,392.233 79.097,396.314 84.153,396.314 L106.328,396.314 C107.238,402.573 112.522,407.393 119.033,407.393 L157.457,407.393 C163.976,407.393 169.276,402.573 170.17,396.314 L191.321,396.314 C196.361,396.314 200.466,392.233 200.466,387.169 C200.465,382.121 196.36,378 191.32,378 Z"></path><path d="M191.32,346 L84.153,346 C79.097,346 75,350.113 75,355.169 C75,360.233 79.097,364.314 84.153,364.314 L191.32,364.314 C196.36,364.314 200.465,360.233 200.465,355.169 C200.465,350.121 196.36,346 191.32,346 Z"></path><path class="lamp__light" d="M241.923,228.803 L248.06,218.935 C254.555,208.888 276.136,172.74 276.136,138.088 C276.136,61.964 214.18,0 138.056,0 C61.924,0 0,61.964 0,138.088 C0,172.708 21.598,208.855 28.222,219.171 C28.051,218.935 38.009,234.729 38.009,234.729 C55.388,261.952 71.767,287.703 75.636,319.136 C76.465,325.85 82.147,330.89 88.894,330.89 L189.323,330.89 C196.045,330.89 201.752,325.85 202.589,319.169 C206.759,285.28 223.845,257.822 241.923,228.803 Z"></path></svg>
                                 </div>
                             </div>
+                            <!-- FIN LIGHT-BULB -->
                         </div>
-                        <!-- FIN DATOS -->
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura">30</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura">30</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-
-
+                        <!-- FIN ANIMACION -->
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- GRAFICA -->
+                <div class="col-md-8">
                     <div class="row p-2 bg_black">
                         <div class="col-md-12 border  p-2">
                             <canvas id="graphic_luz"></canvas>
                         </div>
                     </div>
                 </div>
+                <!-- FIN GRAFICA -->
             </div>
         </div>
     </div>
-    <!-- FIN PRECIOS -->
+    <!-- FIN LUZ SECCION -->
 
     <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
@@ -255,7 +273,7 @@
     <footer class="container-fluid bg_black text-center text-white py-5">
         <p>Sitio web desarrolado por Rodrgio García Ávila</p>
     </footer>
-
+    <script src="thermo.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
