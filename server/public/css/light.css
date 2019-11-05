@@ -1,38 +1,84 @@
 .frame {
-  margin-top: 120px;
-  margin-left: 150px; }
+    margin-top: 120px;
+    margin-left: 150px;
+}
 
 .lamp {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  fill: #8C8F99; }
-  .lamp__icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    fill: #8C8F99;
+}
+
+.lamp__icon {
     position: relative;
     z-index: 1;
     width: 110px;
     height: 150px;
-    fill: inherit; }
-  .lamp__light {
-    fill: #FFF35C;
-    transition: fill .5s ease-in-out; }
-  .lamp:before, .lamp:after {
+    fill: inherit;
+}
+
+.lamp__light {
+    fill: rgb(235, 217, 54);
+    transition: fill .5s ease-in-out;
+}
+
+.lamp:before,
+.lamp:after {
     content: '';
     position: absolute;
     width: 100px;
     height: 100px;
-    background: #FFF35C;
+    background: rgb(245, 231, 35);
     border-radius: 100%;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    transition: opacity .5s ease-in-out; }
-  .lamp:before {
-    box-shadow: 0 0 150px 10px #FFF35C; }
-  .lamp:after {
-    box-shadow: 0 0 50px 10px #FFF35C; }
-  .lamp:hover:before, .lamp:hover:after {
-    opacity: 0; }
-  .lamp:hover .lamp__light {
-    fill: #8C8F99; }
+    transition: opacity .5s ease-in-out;
+}
+
+
+/*
+.lamp:before {
+    box-shadow: 0 0 1px 1px #FFF35C;
+}*/
+
+.lamp:after {
+    box-shadow: 0 0 200px 10px rgb(212, 203, 74);
+}
+
+.lamp_1:after {
+    box-shadow: 0 0 200px 80px rgb(212, 203, 74);
+}
+
+.lamp_2:after {
+    box-shadow: 0 0 200px 60px rgb(212, 203, 74);
+}
+
+.lamp_3:after {
+    box-shadow: 0 0 200px 40px rgb(212, 203, 74);
+}
+
+.lamp_4:after {
+    box-shadow: 0 0 200px 20px rgb(212, 203, 74);
+}
+
+.lamp_5:after {
+    box-shadow: 0 0 200px 10px rgb(212, 203, 74);
+}
+
+.lamp_off {
+    opacity: 0;
+    fill: #8C8F99;
+}
+
+.lamp:hover:before,
+.lamp:hover:after {
+    opacity: 0;
+}
+
+.lamp:hover .lamp__light {
+    fill: #8C8F99;
+}
+
 
 /*# sourceMappingURL=light.css.map */
