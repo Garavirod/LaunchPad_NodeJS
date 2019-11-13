@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/light.css">
+    <link rel="stylesheet" href="css/magnet.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
@@ -200,70 +201,71 @@
     <!-- FIN LUZ SECCION -->
     <div class="container-fluid py-5 bg_red text-center text-white">
         <div>
-            <h2 class="fuente">Sensor de Humedad</h2>
+            <h2 class="fuente">Magnetómetro</h2>
             <!-- los hijos estran en diplay con tamaño de 4 -->
             <div class="display-4">
                 <!-- Les agreagsmo los iconos un padding de 5 px con pr-5 -->
-                <i class="pr-5 fas fa-cloud-download-alt"></i>
-                <i class="pr-5 far fa-money-bill-alt"></i>
-                <i class="pr-5 fab fa-slack"></i>
-                <i class="pr-5 fab fa-linux"></i>
-                <i class="pr-5 fab fa-apple"></i>
+                <img src="png/magnetism.png" class="img-fluid" alt="">
             </div>
         </div>
     </div>
-    <!-- PRECIOS -->
+    <!-- SECCION MAGNETOMETRO -->
     <div class="container-fluid bg-white">
         <div class="container py-5">
-
             <div class="row fuente">
-                <div class="col-md-6 p-3">
+                <div class="col-md-4">
                     <div class="row">
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="humedad">30</h5>
+                        <div class="col-md-12">
+                            <!-- DATOS -->
+                            <ul class="list-group card border-danger">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Tc(°C)
+                                    <span class="badge badge-danger badge-pill">14.34</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    V0(V)
+                                    <span class="badge badge-danger badge-pill">2.5</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Vt(V)
+                                    <span class="badge badge-danger badge-pill">1.23</span>
+                                </li>
+                            </ul>
+                            <!-- FIN DATOS -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- ANIMACION -->
+                        <div class="col-md-12 p-5 m-5">
+                            <!-- MAGNETO -->
+                            <div class="view">
+                                <div id="" class="plane main">
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
                                 </div>
                             </div>
+                            <!-- FIN MAGNETO -->
                         </div>
-                        <!-- FIN DATOS -->
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura">30</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-                        <!-- DATOS -->
-                        <div class="col-md-4">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header">Tc(°c)</div>
-                                <div class="card-body">
-                                    <h5 class="card-title" id="temperatura">30</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FIN DATOS -->
-
-
+                        <!-- FIN ANIMACION -->
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- GRAFICA -->
+                <div class="col-md-8">
                     <div class="row p-2 bg_black">
                         <div class="col-md-12 border  p-2">
-                            <canvas id="graphic_hume"></canvas>
+                            <canvas id="graphic_mag"></canvas>
                         </div>
                     </div>
                 </div>
+                <!-- FIN GRAFICA -->
             </div>
         </div>
     </div>
-    <!-- FIN PRECIOS -->
+    <!-- FIN MAGNETOMETRO -->
     <!-- FOOTER -->
     <footer class="container-fluid bg_black text-center text-white py-5">
         <p>Sitio web desarrolado por Rodrgio García Ávila</p>

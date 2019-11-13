@@ -2,6 +2,8 @@
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
+const puertoLocal = 2000;
+const puertoSerial = '/dev/ttyACM0';
 
 // CONEXION DE LOS WEB SOCKETS
 const app = express();
@@ -10,14 +12,14 @@ const io = socketIO.listen(server);
 let df = [];
 app.use(express.static(__dirname + '/public'));
 
-server.listen(2000, function() {
-    console.log('server listenig on port ' + 2000);
+server.listen(puertoLocal, function() {
+    console.log('server listenig on port ' + puertoLocal);
 });
 
 // SERIAL
 const Serialport = require('serialport');
 const ReadLine = Serialport.parsers.Readline; //Leer lo que llega linea a linea
-const port = new Serialport('/dev/ttyACM0', {
+const port = new Serialport(puertoSerial, {
     baudRate: 9600
 });
 
@@ -29,17 +31,14 @@ parser.on('open', function() {
 
 parser.on('data', function(data) {
     console.log(data);
-    //io.emit('temp', data);
-    df.push(data);
+    //io.emit('temp', data);    
+    df.push(data); // Colectamos las tres señales de la launchapad
     if (df.length == 3) {
-        io.emit('temp:data', {
+        io.emit('signals:data', {
             value: df //data.toString()
         });
         df = [];
     }
-
-
-
 });
 
 port.on('error', function(err) {

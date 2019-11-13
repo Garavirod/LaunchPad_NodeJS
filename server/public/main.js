@@ -1,22 +1,22 @@
 const socket = io();
 let counter = 0;
 
-socket.on('temp:data', function(ds) {
-    pinta_grafica(0, 'temperatura', ds, charTemp);
-    pinta_grafica(1, 'hzt', ds, charLuz);
-    pinta_grafica(2, 'humedad', ds, charhumedad);
+socket.on('signals:data', function(ds) {
+    update_graficos(0, 'temperatura', ds, charTemp);
+    update_graficos(1, 'lampara', ds, charLuz);
+    update_graficos(2, 'mag', ds, charMag);
 });
 
 
 // Grafica de temperaturua
 var objTemp = document.getElementById('graphic_temp').getContext('2d');
-var charTemp = graphicSettings(objTemp, 'rgb(21, 212, 47)', 'Temperatura');
+var charTemp = graphicSettings(objTemp, '#F59F1B', 'Temperatura');
 // Grafica de tluz
 var objLuz = document.getElementById('graphic_luz').getContext('2d');
 var charLuz = graphicSettings(objLuz, 'rgb(239, 243, 11)', 'Lumens');
 // Grafica de 3 sensor
-var objhumedad = document.getElementById('graphic_hume').getContext('2d');
-var charhumedad = graphicSettings(objhumedad, 'rgb(11, 243, 215)', 'humedad');
+var objmag = document.getElementById('graphic_mag').getContext('2d');
+var charMag = graphicSettings(objmag, ' rgb(20, 130, 220)', 'Mag');
 
 // DEFINICION DE FUNCIONES 
 
@@ -26,7 +26,7 @@ var charhumedad = graphicSettings(objhumedad, 'rgb(11, 243, 215)', 'humedad');
     @param: index Es el índice de la señal que se está leyendo 0:tem , 1:luz: 2:mag
     @param: Id del canvas del DOM
     @param ds : dataset
-    @param: mychart chart previemente configurado para una señal en espesifico
+    @param: chart chart previemente configurado para una señal en espesifico
 */
 
 
@@ -59,39 +59,45 @@ function anima_temperatura(ds, idDiv) {
 }
 
 
-function anima_foco() {
+function anima_foco(ds, idDiv) {
     var styleElem = document.head.appendChild(document.createElement("style"));
+    let parametro = ds.value[0]; //señal que se obtuvo de la launchapad
     styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px 10px rgb(212, 203, 74);}";
 }
 
-function anima_magnetismo() {
+function anima_magnet() {
 
 }
 
-function pinta_grafica(index, varGraficaId, ds, myChart) {
+function update_graficos(signal, divIdAnimate, ds, chart) {
+
+    // ACTUALIZA GRÁFICA
     if (counter < 5) {
-        myChart.data.labels.push(counter);
-        myChart.data.datasets.forEach(dataset => {
-            dataset.data.push(ds.value[index] * 100);
+        chart.data.labels.push(counter);
+        chart.data.datasets.forEach(dataset => {
+            dataset.data.push(ds.value[signal] * 100);
         });
     } else {
         counter = 0;
-        myChart.data.labels.splice(0, 3);
-        myChart.data.datasets.forEach(dataset => {
+        chart.data.labels.splice(0, 3);
+        chart.data.datasets.forEach(dataset => {
             dataset.data.splice(0, 3);
 
         });
     }
     counter++;
-    myChart.update();
+    chart.update();
 
+    // ACTUALIZA ANIMACION
     switch (signal) {
-        case 'temperatura':
-            anima_temperatura(ds, varGraficaId);
+        case 0:
+            anima_temperatura(ds, divIdAnimate);
             break;
-        case 'luz':
+        case 1:
+            anima_foco(ds, divIdAnimate);
             break;
-        case 'magnetismo':
+        case 2:
+            anima_magnet(ds, divIdAnimate);
             break;
     }
 
@@ -105,7 +111,7 @@ function pinta_grafica(index, varGraficaId, ds, myChart) {
     @param etq: etiqueta de la gráfica
 */
 function graphicSettings(ctx, color, etq) {
-    var myChart = new Chart(ctx, {
+    var chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: [],
@@ -138,5 +144,5 @@ function graphicSettings(ctx, color, etq) {
         }
     });
 
-    return myChart;
+    return chart;
 }
