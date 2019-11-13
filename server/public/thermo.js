@@ -10,15 +10,14 @@ const config = {
 };
 
 // Change temperature
-const range = 25; //document.querySelector("input[type='range']");
+const range = 15.5;
 const temperature = document.getElementById("temperature");
 
 function setTemperature() {
     temperature.style.height = (range - config.minTemp) / (config.maxTemp - config.minTemp) * 100 + "%";
     temperature.dataset.value = range + units[config.unit];
 }
-setTimeout(setTemperature, 1000);
+setTimeout(setTemperature, 500);
 
-let element = document.getElementById('lampara') // or $('.my-element').get(0) when using jQuery
-let style = window.getComputedStyle(element, '::before')
-let color = style.getPropertyValue('background-color')
+var styleElem = document.head.appendChild(document.createElement("style"));
+styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px 10px rgb(212, 203, 74);}";

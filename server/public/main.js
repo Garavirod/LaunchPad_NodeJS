@@ -20,6 +20,54 @@ var charhumedad = graphicSettings(objhumedad, 'rgb(11, 243, 215)', 'humedad');
 
 // DEFINICION DE FUNCIONES 
 
+
+/*
+    Función que se encarga de pintar el chart en el canvas del DOM.
+    @param: index Es el índice de la señal que se está leyendo 0:tem , 1:luz: 2:mag
+    @param: Id del canvas del DOM
+    @param ds : dataset
+    @param: mychart chart previemente configurado para una señal en espesifico
+*/
+
+
+function anima_temperatura(ds, idDiv) {
+    const units = {
+        Celcius: "°C",
+        Fahrenheit: "°F"
+    };
+
+    const config = {
+        minTemp: -20,
+        maxTemp: 100,
+        unit: "Celcius"
+    };
+
+    // Change temperature
+    const range = 15.5;
+    const temperature = document.getElementById("temperature");
+
+    function setTemperature() {
+        temperature.style.height = (range - config.minTemp) / (config.maxTemp - config.minTemp) * 100 + "%";
+        temperature.dataset.value = range + units[config.unit];
+    }
+    setTimeout(setTemperature, 500);
+
+    // Cambiar valores de los divs
+    let t = document.getElementById(idDiv);
+    let r = (parseFloat(ds.value[index]) * 100);
+    t.innerHTML = r + "°C";
+}
+
+
+function anima_foco() {
+    var styleElem = document.head.appendChild(document.createElement("style"));
+    styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px 10px rgb(212, 203, 74);}";
+}
+
+function anima_magnetismo() {
+
+}
+
 function pinta_grafica(index, varGraficaId, ds, myChart) {
     if (counter < 5) {
         myChart.data.labels.push(counter);
@@ -37,11 +85,25 @@ function pinta_grafica(index, varGraficaId, ds, myChart) {
     counter++;
     myChart.update();
 
-    let t = document.getElementById(varGraficaId);
-    let r = (parseFloat(ds.value[index]) * 100);
-    t.innerHTML = r + "°C";
+    switch (signal) {
+        case 'temperatura':
+            anima_temperatura(ds, varGraficaId);
+            break;
+        case 'luz':
+            break;
+        case 'magnetismo':
+            break;
+    }
+
+
 }
 
+// Función que configura algunas propiedades del chart
+/*
+    @param: ctx obj del DOM
+    @param: color del borde de la gráfica
+    @param etq: etiqueta de la gráfica
+*/
 function graphicSettings(ctx, color, etq) {
     var myChart = new Chart(ctx, {
         type: 'line',
