@@ -29,8 +29,8 @@
 }
 
 .circle {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
