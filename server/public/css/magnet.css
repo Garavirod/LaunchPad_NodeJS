@@ -28,18 +28,19 @@
     animation: rotate 20s infinite linear;
 }
 
-.plane.main .circle {
-    width: 120px;
-    height: 120px;
+.circle {
+    width: 200px;
+    height: 200px;
     position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     border-radius: 100%;
     box-sizing: border-box;
-    box-shadow: 0 0 60px rgb(20, 130, 220), inset 0 0 60px rgb(20, 130, 220);
+    box-shadow: 0 0 60px rgb(175, 73, 55), inset 0 0 60px rgb(40, 106, 168);
 }
 
-.plane.main .circle::before,
+
+/* .plane.main .circle::before,
 .plane.main .circle::after {
     content: "";
     display: block;
@@ -52,10 +53,10 @@
     width: 10%;
     height: 10%;
     border-radius: 100%;
-    background: rgb(20, 130, 220);
+    background: rgb(66, 73, 78);
     box-sizing: border-box;
-    box-shadow: 0 0 60px 2px rgb(20, 130, 220);
-}
+    box-shadow: 0 0 60px 2px rgb(90, 100, 109);
+} */
 
 .plane.main .circle::before {
     -webkit-transform: translateZ(-90px);
@@ -103,7 +104,8 @@
     }
 }
 
-@keyframes rotate {
+
+/* @keyframes rotate {
     0% {
         -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
         transform: rotateX(0) rotateY(0) rotateZ(0);
@@ -112,4 +114,4 @@
         -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
         transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
     }
-}
+} */

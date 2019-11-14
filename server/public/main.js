@@ -42,6 +42,9 @@ function anima_temperatura(ds, idDiv) {
         unit: "Celcius"
     };
 
+
+    let r = (parseFloat(ds.value[0]) * 100);
+
     // Change temperature
     const range = 15.5;
     const temperature = document.getElementById("temperature");
@@ -54,18 +57,19 @@ function anima_temperatura(ds, idDiv) {
 
     // Cambiar valores de los divs
     let t = document.getElementById(idDiv);
-    let r = (parseFloat(ds.value[index]) * 100);
     t.innerHTML = r + "°C";
 }
 
 
 function anima_foco(ds, idDiv) {
     var styleElem = document.head.appendChild(document.createElement("style"));
-    let parametro = ds.value[0]; //señal que se obtuvo de la launchapad
-    styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px 10px rgb(212, 203, 74);}";
+    let parametro = ds.value[1]; //señal que se obtuvo de la launchapad
+    let lum = "";
+    //Agregar paramtros con los IF's
+    styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px " + lum + "px rgb(212, 203, 74);}";
 }
 
-function anima_magnet() {
+function anima_magnet(ds, idDiv) {
 
 }
 
