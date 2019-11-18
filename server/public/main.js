@@ -2,9 +2,9 @@ const socket = io();
 let counter = 0;
 
 socket.on('signals:data', function(ds) {
-    update_graficos(0, 'temperatura', ds, charTemp);
-    update_graficos(1, 'lampara', ds, charLuz);
-    update_graficos(2, 'mag', ds, charMag);
+    update_graficos(0, ds, charTemp);
+    update_graficos(1, ds, charLuz);
+    update_graficos(2, ds, charMag);
 });
 
 
@@ -30,7 +30,7 @@ var charMag = graphicSettings(objmag, ' rgb(20, 130, 220)', 'Mag');
 */
 
 
-function anima_temperatura(ds, idDiv) {
+function anima_temperatura(ds) {
     const units = {
         Celcius: "°C",
         Fahrenheit: "°F"
@@ -43,10 +43,10 @@ function anima_temperatura(ds, idDiv) {
     };
 
 
-    let r = (parseFloat(ds.value[0]) * 100);
+    let r = (parseFloat(ds.value[0]) * 100).toFixed(1);
 
     // Change temperature
-    const range = 15.5;
+    const range = r;
     const temperature = document.getElementById("temperature");
 
     function setTemperature() {
@@ -56,24 +56,118 @@ function anima_temperatura(ds, idDiv) {
     setTimeout(setTemperature, 500);
 
     // Cambiar valores de los divs
-    let t = document.getElementById(idDiv);
-    t.innerHTML = r + "°C";
+    let tc = document.getElementById("TC");
+    //let v0 = document.getElementById("V0");
+    tc.innerHTML = r + "°C";
+    //v0.innerHTML = "V";
 }
 
 
-function anima_foco(ds, idDiv) {
+function anima_foco(ds) {
+    var vo = 0; //ds.value[1];
+    let lum = 0;
+    let watt = "";
+    let frec = (vo / (0.000986)).toFixed(3);
+    let luminosidad = 0;
+
+    if (vo >= 0 && vo <= 0.70) {
+        watt = "0";
+    } else
+    if (vo > 0.70 && vo <= 0.89) {
+        lum = 370;
+        watt = "40";
+        luminosidad = 10;
+    } else if (vo > 0.90 && vo <= 1.17) {
+        lum = 900;
+        watt = "70";
+        luminosidad = 20;
+    } else if (vo > 1.18 && vo <= 1.39) {
+        lum = 864;
+        watt = "24";
+        luminosidad = 40;
+    } else if (vo > 1.40 && vo <= 1.73) {
+        lum = 950;
+        watt = "100";
+        luminosidad = 60;
+    } else if (vo > 1.74 && vo <= 1.85) {
+        lum = 1900;
+        watt = "200";
+        luminosidad = 80;
+    } else {
+        lum = 4984;
+        watt = "434";
+        luminosidad = 100;
+    }
+
+    // Cambia datos
+    let lumnes = document.getElementById("LUMENS");
+    let watts = document.getElementById("WATTS");
+    let hertz = document.getElementById("HERTZ");
+    let vo_foco = document.getElementById("VO_FOCO");
+
+    lumnes.innerHTML = lum;
+    watts.innerHTML = watt;
+    hertz.innerHTML = frec;
+    vo_foco.innerHTML = vo;
+
+
+    //Anima foco
     var styleElem = document.head.appendChild(document.createElement("style"));
-    let parametro = ds.value[1]; //señal que se obtuvo de la launchapad
-    let lum = "";
-    //Agregar paramtros con los IF's
-    styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px " + lum + "px rgb(212, 203, 74);}";
+    if (luminosidad != 0) {
+        styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px " + luminosidad + "px rgb(212, 203, 74);}";
+    } else {
+        styleElem.innerHTML = "#lampara:before, #lampara:after  {opacity: 0;}";
+        styleElem.innerHTML = ".lamp .lamp__light{fill: #8C8F99;}";
+    }
+
 }
 
-function anima_magnet(ds, idDiv) {
+function anima_magnet(ds) {
+    let vo = 0.89; //ds.value[2];
+    let campo = 80;
+
+
+    // if (vo >= 0 && vo <= 0.70) {
+    //     watt = "0";
+    // } else
+    // if (vo > 0.70 && vo <= 0.89) {
+    //     lum = 370;
+    //     watt = "40";
+    //     luminosidad = 10;
+    // } else if (vo > 0.90 && vo <= 1.17) {
+    //     lum = 900;
+    //     watt = "70";
+    //     luminosidad = 20;
+    // } else if (vo > 1.18 && vo <= 1.39) {
+    //     lum = 864;
+    //     watt = "24";
+    //     luminosidad = 40;
+    // } else if (vo > 1.40 && vo <= 1.73) {
+    //     lum = 950;
+    //     watt = "100";
+    //     luminosidad = 60;
+    // } else if (vo > 1.74 && vo <= 1.85) {
+    //     lum = 1900;
+    //     watt = "200";
+    //     luminosidad = 80;
+    // } else {
+    //     lum = 4984;
+    //     watt = "434";
+    //     luminosidad = 100;
+    // }
+
+    // Cambia datos
+    let vo_mag = document.getElementById("VO_MAG");
+    vo_mag.innerHTML = vo;
+
+    //Anima magnetometro
+    var styleElem = document.head.appendChild(document.createElement("style"));
+    styleElem.innerHTML = ".circle  {width: " + campo + "px; height: " + campo + "px;}";
+
 
 }
 
-function update_graficos(signal, divIdAnimate, ds, chart) {
+function update_graficos(signal, ds, chart) {
 
     // ACTUALIZA GRÁFICA
     if (counter < 5) {
@@ -95,13 +189,13 @@ function update_graficos(signal, divIdAnimate, ds, chart) {
     // ACTUALIZA ANIMACION
     switch (signal) {
         case 0:
-            anima_temperatura(ds, divIdAnimate);
+            anima_temperatura(ds);
             break;
         case 1:
-            anima_foco(ds, divIdAnimate);
+            anima_foco(ds);
             break;
         case 2:
-            anima_magnet(ds, divIdAnimate);
+            anima_magnet(ds);
             break;
     }
 

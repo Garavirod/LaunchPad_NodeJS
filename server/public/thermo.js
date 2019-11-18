@@ -19,5 +19,9 @@ function setTemperature() {
 }
 setTimeout(setTemperature, 500);
 
-var styleElem = document.head.appendChild(document.createElement("style"));
-styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px 10px rgb(212, 203, 74);}";
+// var styleElem = document.head.appendChild(document.createElement("style"));
+// styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px 40px rgb(212, 203, 74);}";
+
+// var styleElem = document.head.appendChild(document.createElement("style"));
+// styleElem.innerHTML = "#lampara:before, #lampara:after  {opacity: 0;}";
+// styleElem.innerHTML = ".lamp .lamp__light{fill: #8C8F99;}";

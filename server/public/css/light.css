@@ -42,11 +42,14 @@
     box-shadow: 0 0 1px 1px #FFF35C;
 }*/
 
-.lamp:after {
-    box-shadow: 0 0 200px 10px rgb(212, 203, 74);
-}
 
-.lamp_1:after {
+/* 
+.lamp:after {
+    box-shadow: 0 0 200px 100px rgb(212, 203, 74);
+} */
+
+
+/* .lamp_1:after {
     box-shadow: 0 0 200px 80px rgb(212, 203, 74);
 }
 
@@ -64,21 +67,14 @@
 
 .lamp_5:after {
     box-shadow: 0 0 200px 10px rgb(212, 203, 74);
-}
+} */
 
-.lamp_off {
-    opacity: 0;
-    fill: #8C8F99;
-}
 
-.lamp:hover:before,
+/* .lamp:hover:before,
 .lamp:hover:after {
     opacity: 0;
 }
 
-.lamp:hover .lamp__light {
+.lamp .lamp__light {
     fill: #8C8F99;
-}
-
-
-/*# sourceMappingURL=light.css.map */
+} */
