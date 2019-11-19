@@ -64,26 +64,25 @@ function anima_temperatura(ds) {
 
 
 function anima_foco(ds) {
-    var vo = 0; //ds.value[1];
+    var vo = ds.value[1];
     let lum = 0;
     let watt = "";
     let frec = (vo / (0.000986)).toFixed(3);
     let luminosidad = 0;
 
-    if (vo >= 0 && vo <= 0.70) {
+    if (vo >= 0 && vo <= 0.03) {
         watt = "0";
-    } else
-    if (vo > 0.70 && vo <= 0.89) {
+    } else if (vo > 0.03 && vo <= 0.06) {
+        lum = 93;
+        watt = "10";
+        luminosidad = 10;
+    } else if (vo > 0.70 && vo <= 0.89) {
         lum = 370;
         watt = "40";
-        luminosidad = 10;
+        luminosidad = 20;
     } else if (vo > 0.90 && vo <= 1.17) {
         lum = 900;
         watt = "70";
-        luminosidad = 20;
-    } else if (vo > 1.18 && vo <= 1.39) {
-        lum = 864;
-        watt = "24";
         luminosidad = 40;
     } else if (vo > 1.40 && vo <= 1.73) {
         lum = 950;
@@ -123,9 +122,11 @@ function anima_foco(ds) {
 }
 
 function anima_magnet(ds) {
-    let vo = 0.89; //ds.value[2];
-    let campo = 80;
+    let vo = ds.value[2];
+    let campo = 50;
 
+    if (vo >= 1.6 && vo <= 3)
+        campo = 100;
 
     // if (vo >= 0 && vo <= 0.70) {
     //     watt = "0";
