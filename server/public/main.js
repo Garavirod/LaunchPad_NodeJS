@@ -113,7 +113,7 @@ function anima_foco(ds) {
     //Anima foco
     var styleElem = document.head.appendChild(document.createElement("style"));
     if (luminosidad != 0) {
-        styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px " + luminosidad + "px rgb(212, 203, 74);}";
+        styleElem.innerHTML = "#lampara:after {box-shadow: 0 0 200px " + luminosidad + "px rgb(236, 222, 16);}";
     } else {
         styleElem.innerHTML = "#lampara:before, #lampara:after  {opacity: 0;}";
         styleElem.innerHTML = ".lamp .lamp__light{fill: #8C8F99;}";
@@ -122,11 +122,11 @@ function anima_foco(ds) {
 }
 
 function anima_magnet(ds) {
-    let vo = ds.value[2];
-    let campo = 50;
+    //let vo = ds.value[2];
+    var campo = 200;
 
-    if (vo >= 1.6 && vo <= 3)
-        campo = 100;
+    // if (vo >= 1.6 && vo <= 3)
+    //     campo = 100;
 
     // if (vo >= 0 && vo <= 0.70) {
     //     watt = "0";

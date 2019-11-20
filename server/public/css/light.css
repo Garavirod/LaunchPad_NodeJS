@@ -18,8 +18,8 @@
 }
 
 .lamp__light {
-    fill: rgb(235, 217, 54);
-    transition: fill .5s ease-in-out;
+    /* fill: rgb(235, 217, 54);
+    transition: fill .5s ease-in-out; */
 }
 
 .lamp:before,
@@ -43,9 +43,8 @@
 }*/
 
 
-/* 
-.lamp:after {
-    box-shadow: 0 0 200px 100px rgb(212, 203, 74);
+/* .lamp:after {
+    box-shadow: 0 0 200px 100px rgb(236, 222, 16);
 } */
 
 
