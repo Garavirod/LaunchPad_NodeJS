@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 const puertoLocal = 2000;
-const puertoSerial = '/dev/ttyACM2';
+const puertoSerial = '/dev/ttyACM1';
 
 // CONEXION DE LOS WEB SOCKETS
 const app = express();

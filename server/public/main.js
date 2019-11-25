@@ -10,13 +10,13 @@ socket.on('signals:data', function(ds) {
 
 // Grafica de temperaturua
 var objTemp = document.getElementById('graphic_temp').getContext('2d');
-var charTemp = graphicSettings(objTemp, '#F59F1B', 'Temperatura');
+var charTemp = graphicSettings(objTemp, '#F59F1B', 'Vo');
 // Grafica de tluz
 var objLuz = document.getElementById('graphic_luz').getContext('2d');
-var charLuz = graphicSettings(objLuz, 'rgb(239, 243, 11)', 'Lumens');
+var charLuz = graphicSettings(objLuz, 'rgb(239, 243, 11)', 'Vo');
 // Grafica de 3 sensor
 var objmag = document.getElementById('graphic_mag').getContext('2d');
-var charMag = graphicSettings(objmag, ' rgb(20, 130, 220)', 'Mag');
+var charMag = graphicSettings(objmag, ' rgb(20, 130, 220)', 'Vo');
 
 // DEFINICION DE FUNCIONES 
 
@@ -76,19 +76,19 @@ function anima_foco(ds) {
         lum = 93;
         watt = "10";
         luminosidad = 10;
-    } else if (vo > 0.70 && vo <= 0.89) {
+    } else if (vo > 0.06 && vo <= 0.7) {
         lum = 370;
         watt = "40";
         luminosidad = 20;
-    } else if (vo > 0.90 && vo <= 1.17) {
+    } else if (vo > 0.7 && vo <= 1.1) {
         lum = 900;
         watt = "70";
         luminosidad = 40;
-    } else if (vo > 1.40 && vo <= 1.73) {
+    } else if (vo > 1.1 && vo <= 1.45) {
         lum = 950;
         watt = "100";
         luminosidad = 60;
-    } else if (vo > 1.74 && vo <= 1.85) {
+    } else if (vo > 1.45 && vo <= 2) {
         lum = 1900;
         watt = "200";
         luminosidad = 80;
@@ -174,7 +174,7 @@ function update_graficos(signal, ds, chart) {
     if (counter < 5) {
         chart.data.labels.push(counter);
         chart.data.datasets.forEach(dataset => {
-            dataset.data.push(ds.value[signal] * 100);
+            dataset.data.push(ds.value[signal]);
         });
     } else {
         counter = 0;
