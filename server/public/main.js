@@ -58,8 +58,8 @@ function anima_temperatura(ds) {
     // Cambiar valores de los divs
     let tc = document.getElementById("TC_temp");
     let v0 = document.getElementById("VO_temp");
-    tc.innerHTML = r + " °C";
-    v0.innerHTML = vo + " V";
+    tc.innerHTML = r;
+    v0.innerHTML = vo;
 }
 
 
