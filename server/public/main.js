@@ -38,11 +38,11 @@ function anima_temperatura(ds) {
 
     const config = {
         minTemp: -20,
-        maxTemp: 100,
+        maxTemp: 150,
         unit: "Celcius"
     };
 
-
+    // Factor para obtener la temperatura
     let r = (parseFloat(ds.value[0]) * 100).toFixed(1);
 
     // Change temperature
@@ -56,10 +56,10 @@ function anima_temperatura(ds) {
     setTimeout(setTemperature, 500);
 
     // Cambiar valores de los divs
-    let tc = document.getElementById("TC");
-    //let v0 = document.getElementById("V0");
-    tc.innerHTML = r + "°C";
-    //v0.innerHTML = "V";
+    let tc = document.getElementById("TC_temp");
+    let v0 = document.getElementById("VO_temp");
+    tc.innerHTML = r + " °C";
+    v0.innerHTML = vo + " V";
 }
 
 
@@ -122,8 +122,8 @@ function anima_foco(ds) {
 }
 
 function anima_magnet(ds) {
-    //let vo = ds.value[2];
-    var campo = 200;
+    let vo = ds.value[2];
+    var campo = 200; //50 80 100 150 200
 
     // if (vo >= 1.6 && vo <= 3)
     //     campo = 100;
@@ -161,6 +161,10 @@ function anima_magnet(ds) {
     let vo_mag = document.getElementById("VO_MAG");
     vo_mag.innerHTML = vo;
 
+    let gauss_mag = document.getElementById("GAUSS_MAG");
+    let gauss = ((vo - 2, 5) / 0.0014).toFixed(3);
+    gauss_mag.innerHTML = gauss;
+
     //Anima magnetometro
     var styleElem = document.head.appendChild(document.createElement("style"));
     styleElem.innerHTML = ".circle  {width: " + campo + "px; height: " + campo + "px;}";
@@ -174,7 +178,7 @@ function update_graficos(signal, ds, chart) {
     if (counter < 5) {
         chart.data.labels.push(counter);
         chart.data.datasets.forEach(dataset => {
-            dataset.data.push(ds.value[signal]);
+            dataset.data.push(ds.value[signal]); //multiplicar por factor
         });
     } else {
         counter = 0;
