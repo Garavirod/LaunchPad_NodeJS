@@ -43,7 +43,8 @@ function anima_temperatura(ds) {
     };
 
     // Factor para obtener la temperatura
-    let r = (parseFloat(ds.value[0]) * 100).toFixed(1);
+
+    let r = ((11.394 * parseFloat(ds.value[0])) + 9.9903).toFixed(1);
 
     // Change temperature
     const range = r;
@@ -162,7 +163,7 @@ function anima_magnet(ds) {
     vo_mag.innerHTML = vo;
 
     let gauss_mag = document.getElementById("GAUSS_MAG");
-    let gauss = ((vo - 2, 5) / 0.0014).toFixed(3);
+    let gauss = ((vo - 2.5) / 0.0014).toFixed(3);
     gauss_mag.innerHTML = gauss;
 
     //Anima magnetometro
