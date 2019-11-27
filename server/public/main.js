@@ -60,7 +60,7 @@ function anima_temperatura(ds) {
     let tc = document.getElementById("TC_temp");
     let v0 = document.getElementById("VO_temp");
     tc.innerHTML = r;
-    v0.innerHTML = vo;
+    v0.innerHTML = ds.value[0];
 }
 
 
@@ -124,10 +124,16 @@ function anima_foco(ds) {
 
 function anima_magnet(ds) {
     let vo = ds.value[2];
-    var campo = 200; //50 80 100 150 200
+    var campo = 50; // 100 150 200
 
-    // if (vo >= 1.6 && vo <= 3)
-    //     campo = 100;
+    if (vo >= 0.818 && vo <= 0.819) {
+        campo = 200;
+    } else if (vo >= 0.812 && vo <= 0.813) {
+        campo = 150;
+
+    } else if (vo >= 0.793 && vo <= 0.794) {
+        campo = 100;
+    }
 
     // if (vo >= 0 && vo <= 0.70) {
     //     watt = "0";
