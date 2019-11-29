@@ -71,25 +71,25 @@ function anima_foco(ds) {
     let frec = (vo / (0.000986)).toFixed(3);
     let luminosidad = 0;
 
-    if (vo >= 0 && vo <= 0.03) {
+    if (vo >= 0 && vo <= 0.05) {
         watt = "0";
-    } else if (vo > 0.03 && vo <= 0.06) {
+    } else if (vo > 0.05 && vo <= 0.08) {
         lum = 93;
         watt = "10";
         luminosidad = 10;
-    } else if (vo > 0.06 && vo <= 0.7) {
+    } else if (vo > 0.08 && vo <= 1.20) {
         lum = 370;
         watt = "40";
         luminosidad = 20;
-    } else if (vo > 0.7 && vo <= 1.1) {
+    } else if (vo > 1.20 && vo <= 1.84) {
         lum = 900;
         watt = "70";
         luminosidad = 40;
-    } else if (vo > 1.1 && vo <= 1.45) {
+    } else if (vo > 1.84 && vo <= 2.16) {
         lum = 950;
         watt = "100";
         luminosidad = 60;
-    } else if (vo > 1.45 && vo <= 2) {
+    } else if (vo > 2.16 && vo <= 2.25) {
         lum = 1900;
         watt = "200";
         luminosidad = 80;
@@ -126,15 +126,12 @@ function anima_magnet(ds) {
     let vo = ds.value[2];
     var campo = 50; // 100 150 200
 
-    if (vo >= 0.818 && vo <= 0.819) {
+    if (vo >= 0.90 && vo <= 0.92) {
         campo = 200;
-    } else if (vo >= 0.812 && vo <= 0.813) {
-        campo = 150;
-
-    } else if (vo >= 0.793 && vo <= 0.794) {
+    } else if (vo >= 0.85 && vo <= 0.89) {
         campo = 100;
-    }
 
+    }
     // if (vo >= 0 && vo <= 0.70) {
     //     watt = "0";
     // } else
