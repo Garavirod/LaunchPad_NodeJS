@@ -68,12 +68,12 @@ function anima_foco(ds) {
     var vo = ds.value[1];
     let lum = 0;
     let watt = "";
-    let frec = (vo / (0.000986)).toFixed(3);
+    let frec = (vo / (0.00145)).toFixed(3);
     let luminosidad = 0;
 
-    if (vo >= 0 && vo <= 0.05) {
+    if (vo >= 0 && vo <= 0.04) {
         watt = "0";
-    } else if (vo > 0.05 && vo <= 0.08) {
+    } else if (vo > 0.04 && vo <= 0.08) {
         lum = 93;
         watt = "10";
         luminosidad = 10;
@@ -85,11 +85,11 @@ function anima_foco(ds) {
         lum = 900;
         watt = "70";
         luminosidad = 40;
-    } else if (vo > 1.84 && vo <= 2.16) {
+    } else if (vo > 1.84 && vo <= 2.09) {
         lum = 950;
         watt = "100";
         luminosidad = 60;
-    } else if (vo > 2.16 && vo <= 2.25) {
+    } else if (vo > 2.09 && vo <= 2.19) {
         lum = 1900;
         watt = "200";
         luminosidad = 80;
@@ -166,7 +166,7 @@ function anima_magnet(ds) {
     vo_mag.innerHTML = vo;
 
     let gauss_mag = document.getElementById("GAUSS_MAG");
-    let gauss = ((vo - 2.5) / 0.0014).toFixed(3);
+    let gauss = ((vo - 1.65) / 0.0014).toFixed(3);
     gauss_mag.innerHTML = gauss;
 
     //Anima magnetometro
