@@ -73,23 +73,23 @@ function anima_foco(ds) {
 
     if (vo >= 0 && vo <= 0.04) {
         watt = "0";
-    } else if (vo > 0.04 && vo <= 0.08) {
+    } else if (vo > 0.04 && vo <= 0.10) {
         lum = 93;
         watt = "10";
         luminosidad = 10;
-    } else if (vo > 0.08 && vo <= 1.20) {
+    } else if (vo > 0.10 && vo <= 1.20) {
         lum = 370;
         watt = "40";
         luminosidad = 20;
-    } else if (vo > 1.20 && vo <= 1.84) {
+    } else if (vo > 1.20 && vo <= 1.91) {
         lum = 900;
         watt = "70";
         luminosidad = 40;
-    } else if (vo > 1.84 && vo <= 2.09) {
+    } else if (vo > 1.91 && vo <= 2.12) {
         lum = 950;
         watt = "100";
         luminosidad = 60;
-    } else if (vo > 2.09 && vo <= 2.19) {
+    } else if (vo > 2.12 && vo <= 2.38) {
         lum = 1900;
         watt = "200";
         luminosidad = 80;
